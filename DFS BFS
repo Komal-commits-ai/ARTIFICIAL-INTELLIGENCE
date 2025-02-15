@@ -1,0 +1,126 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyPtXWPPJyyKO0w0last5VI7",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/Komal-commits-ai/ARTIFICIAL-INTELLIGENCE/blob/main/DFS%20BFS\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 1,
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "AMw44Bl52xqd",
+        "outputId": "48cb268f-96f2-44ee-a082-de0ded4927cc"
+      },
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "DFS Traversal:\n",
+            "A B D E F C "
+          ]
+        }
+      ],
+      "source": [
+        "# Function to perform DFS\n",
+        "def dfs(graph, start, visited=None):\n",
+        "    if visited is None:\n",
+        "        visited = set()\n",
+        "    visited.add(start)\n",
+        "    print(start, end=\" \")\n",
+        "\n",
+        "    # Recur for all the vertices adjacent to this vertex\n",
+        "    for neighbor in graph[start]:\n",
+        "        if neighbor not in visited:\n",
+        "            dfs(graph, neighbor, visited)\n",
+        "\n",
+        "# Example graph as an adjacency list\n",
+        "graph = {\n",
+        "    'A': ['B', 'C'],\n",
+        "    'B': ['D', 'E'],\n",
+        "    'C': ['F'],\n",
+        "    'D': [],\n",
+        "    'E': ['F'],\n",
+        "    'F': []\n",
+        "}\n",
+        "\n",
+        "# Calling DFS\n",
+        "print(\"DFS Traversal:\")\n",
+        "dfs(graph, 'A')\n"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Function to perform BFS\n",
+        "def bfs(graph, start):\n",
+        "    visited = set()\n",
+        "    queue = [start]\n",
+        "\n",
+        "    while queue:\n",
+        "        vertex = queue.pop(0)\n",
+        "        if vertex not in visited:\n",
+        "            print(vertex, end=\" \")\n",
+        "            visited.add(vertex)\n",
+        "            queue.extend([neighbor for neighbor in graph[vertex] if neighbor not in visited])\n",
+        "\n",
+        "# Example graph as an adjacency list\n",
+        "graph = {\n",
+        "    'A': ['B', 'C'],\n",
+        "    'B': ['D', 'E'],\n",
+        "    'C': ['F'],\n",
+        "    'D': [],\n",
+        "    'E': ['F'],\n",
+        "    'F': []\n",
+        "}\n",
+        "\n",
+        "# Calling BFS\n",
+        "print(\"BFS Traversal:\")\n",
+        "bfs(graph, 'A')\n"
+      ],
+      "metadata": {
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "id": "iuPcGCJI3ZR1",
+        "outputId": "daf2e659-ab61-46a7-80c7-e879476ac149"
+      },
+      "execution_count": 2,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "BFS Traversal:\n",
+            "A B C D E F "
+          ]
+        }
+      ]
+    }
+  ]
+}
