@@ -1,0 +1,5 @@
+similarity:merge > join 
+stacking on axis:concat > append
+merge:same column pr join hojae ge hm khud bhi specify krskte h through (on):only same column(INDEX) ke same elements 
+if on k ilawa koi aur bhi h to wo do dafa aaege and use (suffixes) for these
+concat:neche bas table attach krdia col sath hi axis =0 rows attach krdo baki jaga nan join inner and outer only
